@@ -45,7 +45,7 @@ class PlantelModel
 	
 
 	public static function ListarPlantel(){
-		$sql_plantel = "SELECT `cod_plantel`, trim(`cod_zona`) as `cod_zona`, trim(`nombre`) as `nombre`, trim(`direccion`) as `direccion`, trim(`nivel_educativo`) as `nivel_educativo` FROM `plantel` ORDER BY cedula asc";
+		$sql_plantel = "SELECT `cod_plantel`, trim(`cod_zona`) as `cod_zona`, trim(`nombre`) as `nombre`, trim(`direccion`) as `direccion`, trim(`nivel_educativo`) as `nivel_educativo` FROM `plantel` ORDER BY cod_plantel asc";
 		$result_plantel = PlantelModel::Get_Data($sql_plantel);
   		return $result_plantel;
 	}
