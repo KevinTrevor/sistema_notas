@@ -15,8 +15,8 @@
     </div>
 </div>
 
-    <div class = "mt-5 mx-3 p-3 rounded border ">
-        <span class = "border-end border-secondary ps-3 pe-2">Cod</span>
+    <div class = "bg-dark text-light mt-5 mx-3 p-3 rounded border ">
+        <span class = "border-end border-light ps-3 pe-2">Cod</span>
         <span class = "ps-3">Estado<span>
     </div>
 
