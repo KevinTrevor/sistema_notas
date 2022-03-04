@@ -45,7 +45,7 @@ class RepresentanteModel
 	
 
 	public static function ListarRepresentante(){
-		$sql_representante = "SELECT `cedula`, trim(`telefono`) as `telefono`, trim(`email`) as `email` FROM `representante` ORDER BY `cedula` asc";
+		$sql_representante = "SELECT * FROM `persona_usuario` INNER JOIN `representante` WHERE `persona_usuario`.`cedula` = `representante`.`cedula` ORDER BY `persona_usuario`.`cedula` asc";
 		$result_representante = RepresentanteModel::Get_Data($sql_representante);
   		return $result_representante;
 	}

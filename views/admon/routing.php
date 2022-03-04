@@ -32,8 +32,8 @@ if (@array_key_exists($controller, $controllers)) {
 		call('Estudiante','ListarEstudiante');
 	}		
 }else{
-        call('Estudiante', 'ListarEstudiante');
-		/*call('ZonaEducativa','ListarZonaEducativa');*/
+        //call('Estudiante', 'ListarEstudiante');
+		call('Docente','ListarDocente');
 }
 
 function call($controller, $action){

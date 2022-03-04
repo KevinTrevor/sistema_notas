@@ -14,7 +14,7 @@ class PlantelController
 
 	static public function ListarPlantel1(){
 	   	 require_once(dirname(__FILE__).'/../models/PlantelModel.php');
-         $result_Listar= PlantelModel::ListarZonaEducativa();
+         $result_Listar= PlantelModel::ListarPlantel();
          return $result_Listar;
 	}
   

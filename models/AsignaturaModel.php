@@ -45,7 +45,7 @@ class AsignaturaModel
 	
 
 	public static function ListarAsignatura(){
-		$sql_asignatura = "SELECT `cod_asignatura`, trim(`ano_escolar`) as `ano_escolar`, trim(`cod_grado`) as `cod_grado`, trim(`nombre`) as `nombre` FROM `asignatura` ORDER BY `cod_asignatura` asc";
+		$sql_asignatura = "SELECT `cod_asignatura`, trim(`cod_ano_escolar`) as `cod_ano_escolar`, trim(`cod_grado`) as `cod_grado`, trim(`nombre`) as `nombre` FROM `asignatura` ORDER BY cod_asignatura asc";
 		$result_asignatura = AsignaturaModel::Get_Data($sql_asignatura);
   		return $result_asignatura;
 	}

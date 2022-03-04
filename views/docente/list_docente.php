@@ -1,8 +1,8 @@
 <?php
-   require_once('../sistema_notas/controllers/DocenteController.php');
-   $controller= new DocenteController();
-   $result_docente= $controller->ListarDocente1();
-   $numrows = mysqli_num_rows($result_docente);
+   require_once(dirname(__FILE__).'/../../controllers/Persona_DocenteController.php');
+   $controller= new Persona_DocenteController();
+   $result_docente= $controller->ListarPersona_Docente1();
+   $numrows = mysqli_num_rows($result_docente['Docente']);
    /*$numrows = mysqli_num_rows($result_estudiante);*/
 ?>
 
@@ -26,13 +26,13 @@
 
    <div class = "shadow-sm">
 <?php
-   while ($numrows = mysqli_fetch_array($result_docente)){
+   while ($numrows = mysqli_fetch_array($result_docente['Docente'])){
    ?>
       <div class = "mx-3 px-3 pb-4 pt-3 rounded border bg-light">
             <span class = "border-end border-secondary px-1"><?php echo $numrows["cedula"]; ?></span>
 
-            <!--<span class = "ps-3"><?php echo $numrows["nombres"];?></span>
-            <span class = "border-end border-secondary px-1"><?php echo $numrows["apellidos"]; ?></span>-->
+            <span class = "ps-3"><?php echo $numrows["nombres"];?></span>
+            <span class = "border-end border-secondary px-1"><?php echo $numrows["apellidos"]; ?></span>
 
             <span class = "border-end border-secondary px-3"><?php echo $numrows["telefono"]; ?></span>
             <span class = "px-3"><?php echo $numrows["email"]; ?></span>

@@ -45,7 +45,7 @@ class DocenteModel
 	
 
 	public static function ListarDocente(){
-		$sql_docente = "SELECT `cedula`, trim(`telefono`) as `telefono`, trim(`email`) as `email` FROM `docente` ORDER BY `cedula` asc";
+		$sql_docente = "SELECT * FROM `persona_usuario` INNER JOIN `docente` WHERE `persona_usuario`.`cedula` = `docente`.`cedula` ORDER BY `persona_usuario`.`cedula` asc";
 		$result_docente = DocenteModel::Get_Data($sql_docente);
   		return $result_docente;
 	}
