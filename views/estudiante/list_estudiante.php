@@ -1,5 +1,5 @@
 <?php
-   require_once('../sistema_notas/controllers/Persona_EstudianteController.php');
+   require_once(dirname(__FILE__).'/../../controllers/Persona_EstudianteController.php');
    $controller= new Persona_EstudianteController();
    $result_estudiante= $controller->ListarPersona_Estudiante1();
    $numrows = mysqli_num_rows($result_estudiante['Estudiante']);

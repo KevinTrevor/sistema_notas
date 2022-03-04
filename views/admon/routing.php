@@ -29,10 +29,10 @@ if (@array_key_exists($controller, $controllers)) {
 		call($controller, $action);
 	}
 	else{
-		call('ZonaEducativa','ListarZonaEducativa');
+		call('Estudiante','ListarEstudiante');
 	}		
 }else{
-        call('Estudiante', 'IngresarEstudiante');
+        call('Estudiante', 'ListarEstudiante');
 		/*call('ZonaEducativa','ListarZonaEducativa');*/
 }
 

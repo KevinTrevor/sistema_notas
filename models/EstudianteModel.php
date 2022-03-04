@@ -45,7 +45,7 @@ class EstudianteModel
 	
 
 	public static function ListarEstudiante(){
-		$sql_estudiante = "SELECT `cedula`, trim(`fecha_ingreso`) as `fecha_ingreso` FROM `estudiante` ORDER BY `cedula` asc";
+		$sql_estudiante = "SELECT * FROM `persona_usuario` INNER JOIN `estudiante` WHERE `persona_usuario`.`cedula` = `estudiante`.`cedula` ORDER BY `persona_usuario`.`cedula` asc";
 		$result_estudiante = EstudianteModel::Get_Data($sql_estudiante);
   		return $result_estudiante;
 	}
