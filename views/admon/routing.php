@@ -7,6 +7,7 @@ $controllers=array(
     'Grado'=>['ListarGrado', 'IngresarGrado', 'IngresarGrado1', 'UpdateGrado', 'UpdateGrado1', 'DeleteGrado'],
     'Asignatura'=>['ListarAsignatura', 'IngresarAsignatura', 'IngresarAsignatura1', 'UpdateAsignatura', 'UpdateAsignatura1', 'DeleteAsignatura'],
     'Persona'=>['ListarPersona', 'IngresarPersona', 'IngresarPersona1', 'UpdatePersona', 'UpdatePersona1', 'DeletePersona'],
+    'Persona_Estudiante'=>['ListarPersona_Estudiante', 'IngresarPersona_Estudiante', 'IngresarPersona_Estudiante1', 'UpdatePersona_Estudiante', 'UpdatePersona_Estudiante1', 'DeletePersona_Estudiante'],
     'Docente'=>['ListarDocente', 'IngresarDocente', 'IngresarDocente1', 'UpdateDocente', 'UpdateDocente1', 'DeleteDocente'],
     'Representante'=>['ListarRepresentante', 'IngresarRepresentante', 'IngresarRepresentante1', 'UpdateRepresentante', 'UpdateRepresentante1', 'DeleteRepresentante'],
     'Estudiante'=>['ListarEstudiante', 'IngresarEstudiante', 'IngresarEstudiante1', 'UpdateEstudiante', 'UpdateEstudiante1', 'DeleteEstudiante'],
@@ -56,6 +57,9 @@ function call($controller, $action){
             break;
         case 'Persona':
             $controller= new PersonaController();
+            break;
+        case 'Persona_Estudiante':
+            $controller= new Persona_EstudianteController();
             break;
         case 'Docente':
             $controller= new DocenteController();
