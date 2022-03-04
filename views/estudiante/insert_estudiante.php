@@ -62,7 +62,10 @@
             <div class = "m-3">
                 <span>Permisos: </span>
                 <div>
-                    <input type="text" class = "form-control bg-light" placeholder = "4">
+                    <!--<input type="text" class = "form-control bg-light" placeholder = "4">-->
+                    <select class = "form-control bg-light">
+                        <option value="">4</option>
+                    </select>
                 </div>
                 <small>1 caracter numérico</small>
             </div>

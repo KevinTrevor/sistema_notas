@@ -11,7 +11,7 @@ class Conectar{
      
     public static function conexion() {
 
-        $database_cfg  = require_once(dirname(__FILE__).'/../config/database.php');
+        $database_cfg  = require(dirname(__FILE__).'/../config/database.php');
         self::$driver  =$database_cfg["driver"];
         self::$host    =$database_cfg["host"];
         self::$user    =$database_cfg["user"];
