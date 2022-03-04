@@ -19,7 +19,7 @@ class RepresentanteModel
 	}
 
 	public static function Update_Data($sql){
-		include_once('core/Conectar.php');
+		include_once(dirname(__FILE__).'/../core/Conectar.php');
 		$conexion=Conectar::conexion();
 		mysqli_autocommit($conexion, FALSE);
 		$result = mysqli_query($conexion, $sql);

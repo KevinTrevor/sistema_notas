@@ -45,7 +45,7 @@ class GradoModel
 	
 
 	public static function ListarGrado(){
-		$sql_grado = "SELECT `cod_grado`, trim(`cod_ano_escolar`) as `cod_ano_escolar`, trim(`num_grado`) as `num_grado`, trim(`cupo`) as `cupo` FROM `grado` ORDER BY `cod_grado` asc";
+		$sql_grado = "SELECT `cod_grado`, trim(`cod_ano_escolar`) as `cod_ano_escolar`, trim(`cod_plantel`) as `cod_plantel`, trim(`num_grado`) as `num_grado`, trim(`cupo`) as `cupo` FROM `grado` ORDER BY `cod_grado` asc";
 		$result_grado = GradoModel::Get_Data($sql_grado);
   		return $result_grado;
 	}
