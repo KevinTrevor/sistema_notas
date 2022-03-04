@@ -17,10 +17,9 @@ class Persona_EstudianteController
 	   	 require_once('models/PersonaModel.php');
          require_once('models/EstudianteModel.php');
          $result_Listar= [
-             'Persona' => PersonaModel::ListarPersona(),
-             'Estudiante' => EstudianteModel::ListarEstudiante()
-         ]
-         return $result_Listar;
+            'Persona' => PersonaModel::ListarPersona(),
+            'Estudiante' => EstudianteModel::ListarEstudiante()];
+        return $result_Listar;
 	}
   
   // Para insertar
@@ -41,7 +40,7 @@ class Persona_EstudianteController
          $result_Listar= [
             'Persona' => PersonaModel::IngresarPersona2($cedula, $nombres, $apellidos, $login, $clave, $permisos),
             'Estudiante' => EstudianteModel::IngresarEstudiante2($cedula, $fecha_ingreso)
-        ]
+         ];
          return $result_Listar;
 	}
 
@@ -53,7 +52,7 @@ class Persona_EstudianteController
          $result_Listar= [
             'Persona' => PersonaModel::BuscarPersonaByCedula($cedula),
             'Estudiante' => EstudianteModel::BuscarEstudianteByCedula($cedula)
-        ]
+         ];
          return $result_Listar;
 	}
 
@@ -73,7 +72,7 @@ class Persona_EstudianteController
          $result_Listar= [
             'Persona' => PersonaModel::UpdatePersona2($cedula, $nombres, $apellidos, $login, $clave, $permisos),
             'Estudiante' => EstudianteModel::UpdateEstudiante2($cedula, $fecha_ingreso)
-        ]
+         ];
          return $result_Listar;
 	}
   
@@ -90,7 +89,7 @@ class Persona_EstudianteController
         $result_Listar= [
             'Persona' => PersonaModel::DeletePersona($cedula),
             'Estudiante' => EstudianteModel::DeleteEstudiante($cedula)
-        ]
+        ];
         return $result_Listar;
 
 		 
