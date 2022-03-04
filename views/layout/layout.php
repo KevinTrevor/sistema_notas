@@ -12,14 +12,14 @@
         <div class="container">
         <?php
             // carga el archivo routing.php para direccionar a la página .php que se incrustará entre la header y el footer
-            require_once('../sistema_notas/views/admon/routing.php');	
+            require_once(dirname(__FILE__).'/../admon/routing.php');	
         ?>
         </div>
     </section>
 
     <footer>
 	<?php 
-		require_once('../sistema_notas/views/layout/footer.php');
+		require_once(dirname(__FILE__).'/'.'footer.php');
 	?>
 </footer>
 </body>

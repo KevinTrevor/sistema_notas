@@ -39,7 +39,7 @@ if (@array_key_exists($controller, $controllers)) {
 function call($controller, $action){
 	
 
-	require_once('controllers/'.$controller.'Controller.php');
+	require_once(dirname(__FILE__).'/../../controllers/'.$controller.'Controller.php');
 
 	switch ($controller) {
 		 

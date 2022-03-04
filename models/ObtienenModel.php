@@ -11,7 +11,7 @@ class ObtienenModel
 	// FUNCIONES GENERICAS PARA CONSULTAR Y ACTUALIZAR (INSERTAR, MODIFICAR Y ELIMINAR)
 
 	public static function Get_Data($sql){
-		include_once('core/Conectar.php');
+		include_once(dirname(__FILE__).'/../core/Conectar.php');
 		$conexion=Conectar::conexion();
 		if(!$result = mysqli_query($conexion, $sql)) die();
 		$conexion = Conectar::desconexion($conexion);
@@ -19,7 +19,7 @@ class ObtienenModel
 	}
 
 	public static function Update_Data($sql){
-		include_once('core/Conectar.php');
+		include_once(dirname(__FILE__).'/../core/Conectar.php');
 		$conexion=Conectar::conexion();
 		mysqli_autocommit($conexion, FALSE);
 		$result = mysqli_query($conexion, $sql);
