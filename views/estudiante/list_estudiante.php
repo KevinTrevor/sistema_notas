@@ -1,8 +1,8 @@
 <?php
-   require_once(dirname(__FILE__).'/../../controllers/Persona_EstudianteController.php');
-   $controller= new Persona_EstudianteController();
-   $result_estudiante= $controller->ListarPersona_Estudiante1();
-   $numrows = mysqli_num_rows($result_estudiante['Estudiante']);
+   require_once(dirname(__FILE__).'/../../controllers/EstudianteController.php');
+   $controller= new EstudianteController();
+   $result_estudiante= $controller->ListarEstudiante1();
+   $numrows = mysqli_num_rows($result_estudiante);
    /*$numrows = mysqli_num_rows($result_estudiante);*/
 ?>
 
@@ -17,30 +17,52 @@
       </div>
    </div>
 
-   <div class = "mt-5 mx-3 p-3 rounded border bg-dark text-light">
-      <span class = "border-end border-light ps-3 pe-2">Cédula </span>
-      <span class = "border-end border-light ps-3 pe-2">Nombres y Apellidos</span>
-      <span class = "ps-3">Fecha Ingreso</span>
-   </div>
+<div class="table-responsive">
+   <table id="dtBasicExample" data-order='[[ 0, "asc" ]]' data-page-length='10' class="table table-sm table-striped table-hover table-bordered" cellspacing="0" width="100%" >
+ 
+      <thead>
+         <tr>
+              <th class="th-sm">Cédula</th>
+              <th class="th-sm">Nombres y Apellidos</th>
+              <th class="th-sm">Fecha de Ingreso</th>
+              <th class="th-sm">Modificar</th>
+              <th class="th-sm">Eliminar</th>
+              <th class="th-sm">Acceder</th>
+         </tr>
 
-   <div class = "shadow-sm">
-<?php
-   while ($numrows = mysqli_fetch_array($result_estudiante['Estudiante'])){
-   ?>
-      <div class = "mx-3 px-3 pb-4 pt-3 rounded border bg-light">
-            <span class = "border-end border-secondary px-1"><?php echo $numrows["cedula"]; ?></span>
-            <span class = "ps-3"><?php echo $numrows["nombres"];?></span>
-            <span class = "border-end border-secondary px-1"><?php echo $numrows["apellidos"]; ?></span>
-            <span class = "ps-3"><?php echo $numrows["fecha_ingreso"]; ?></span>
-            
-            <!--Estos son los botones-->
-            <button class = "btn btn-info float-end mb-2">Acceder</button>
-            <button class ="btn btn-danger float-end mx-2 mb-2">Eliminar</button>
-            <button class ="btn btn-warning float-end mx-2 mb-2">Modificar</button>
+  </thead>
 
-      </div>
-<?php
-   }?>
+ <tbody>
+ <?php 
+     
+      if ($numrows != 0)
+      {
+                       while ($numrows = mysqli_fetch_array($result_estudiante))
+                       {?>
+                            <tr>
+                                <?php
+                                    $i = $numrows["cedula"];
+                                ?>
+                                <th scope="row"><?php echo $numrows["cedula"]; ?></th>                                   
+                                <td><?php echo "$numrows[nombres]"." "."$numrows[apellidos]";?></td>
+                                <td><?php echo "$numrows[fecha_ingreso]";?></td>
+                              
+                                <td align= "center">
+                                    <?php echo "<a href='?controller=Estudiante&action=UpdateEstudiante&i=$i' title= 'Modificar'>";?>  
+                                    <img width="50px" height ="50px" src="../sistema_notas/images/update_icon.png" alt=""> </a>
+                                </td>
+                                <td align= "center">
+                                    <?php echo "<a href='?controller=Estudiante&action=DeleteEstudiante&i=$i' title= 'Eliminar'>";?>  
+                                    <img width="50px" height ="50px" src="../sistema_notas/images/delete_icon.png" alt=""> </a>
+                                </td>
+                                <td align= "center">
+                                    <?php echo "<a href='?controller=Estudiante&action=ListarEstudiante&i=$i' title= 'Acceder'>";?>  
+                                    <img width="50px" height ="50px" src="../sistema_notas/images/access_icon.png" alt=""> </a>
+                                </td>
+                            </tr>
+                  <?php }
+      }
+?>
 </div>
 
 </body>

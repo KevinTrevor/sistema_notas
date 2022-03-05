@@ -59,7 +59,7 @@ class EstudianteController
   // Para eliminar
 
 	function DeleteEstudiante(){
-		 require_once(dirname(__FILE__).'/../views/estudiante/deleted_estudiante.php');
+		 require_once(dirname(__FILE__).'/../views/estudiante/delete_estudiante.php');
 	}
 
 	static public function DeleteEstudiante1($cedula){
