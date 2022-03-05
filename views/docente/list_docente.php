@@ -9,7 +9,8 @@
 <body>
    <div class = "bg-light border p-2">
       <div>
-         <button class="btn btn-lg btn-success float-end me-4">Agregar</button>
+         <?php echo "<a class = 'float-end' href='?controller=Docente&action=IngresarDocente' title= 'Ingresar'>";?>  
+         <img width="50px" height ="50px" src="../sistema_notas/images/add_icon.png" alt=""> </a>
       </div>
 
       <div>
@@ -17,34 +18,53 @@
       </div>
    </div>
 
-   <div class = "mt-5 mx-3 p-3 rounded border bg-dark text-light">
-      <span class = "border-end border-light ps-3 pe-2">Cédula </span>
-      <span class = "border-end border-light ps-3 pe-2">Nombres y Apellidos</span>
-      <span class = "border-end border-light ps-3 pe-2">Teléfono</span>
-      <span class = "border-end border-light ps-3 pe-2">e-mail</span>
-   </div>
+   <div class="table-responsive">
+   <table id="dtBasicExample" data-order='[[ 0, "asc" ]]' data-page-length='10' class="table table-sm table-striped table-hover table-bordered" cellspacing="0" width="100%" >
+ 
+      <thead>
+         <tr>
+              <th class="th-sm">Cédula</th>
+              <th class="th-sm">Nombres y Apellidos</th>
+              <th class="th-sm">Teléfono</th>
+              <th class="th-sm">Correo Electronico</th>
+              <th class="th-sm">Modificar</th>
+              <th class="th-sm">Eliminar</th>
+              <th class="th-sm">Acceder</th>
+         </tr>
 
-   <div class = "shadow-sm">
-<?php
-   while ($numrows = mysqli_fetch_array($result_docente)){
-   ?>
-      <div class = "mx-3 px-3 pb-4 pt-3 rounded border bg-light">
-            <span class = "border-end border-secondary px-1"><?php echo $numrows["cedula"]; ?></span>
+  </thead>
 
-            <span class = "ps-3"><?php echo $numrows["nombres"];?></span>
-            <span class = "border-end border-secondary px-1"><?php echo $numrows["apellidos"]; ?></span>
-
-            <span class = "border-end border-secondary px-3"><?php echo $numrows["telefono"]; ?></span>
-            <span class = "px-3"><?php echo $numrows["email"]; ?></span>
-            
-            <!--Estos son los botones-->
-            <button class = "btn btn-info float-end mb-2">Acceder</button>
-            <button class ="btn btn-danger float-end mx-2 mb-2">Eliminar</button>
-            <button class ="btn btn-warning float-end mx-2 mb-2">Modificar</button>
-
-      </div>
-<?php
-   }?>
+ <tbody>
+ <?php 
+     
+      if ($numrows != 0)
+      {
+                       while ($numrows = mysqli_fetch_array($result_docente))
+                       {?>
+                            <tr>
+                                <?php
+                                    $i = $numrows["cedula"];
+                                ?>
+                                <th scope="row"><?php echo $numrows["cedula"]; ?></th>                                   
+                                <td><?php echo "$numrows[nombres]"." "."$numrows[apellidos]";?></td>
+                                <td><?php echo "$numrows[telefono]";?></td>
+                                <td><?php echo "$numrows[email]";?></td>
+                              
+                                <td align= "center">
+                                    <?php echo "<a href='?controller=Docente&action=UpdateDocente&i=$i' title= 'Modificar'>";?>  
+                                    <img width="50px" height ="50px" src="../sistema_notas/images/update_icon.png" alt=""> </a>
+                                </td>
+                                <td align= "center">
+                                    <?php echo "<a href='?controller=Docente&action=DeleteDocente&i=$i' title= 'Eliminar'>";?>  
+                                    <img width="50px" height ="50px" src="../sistema_notas/images/delete_icon.png" alt=""> </a>
+                                </td>
+                                <td align= "center">
+                                    <?php echo "<a href='?controller=Docente&action=ListarDocente&i=$i' title= 'Acceder'>";?>  
+                                    <img width="50px" height ="50px" src="../sistema_notas/images/access_icon.png" alt=""> </a>
+                                </td>
+                            </tr>
+                  <?php }
+      }
+?>
 </div>
-
 </body>

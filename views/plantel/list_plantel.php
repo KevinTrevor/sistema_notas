@@ -9,7 +9,8 @@
 <body>
    <div class = "bg-light border p-2">
       <div>
-         <button class="btn btn-lg btn-success float-end me-4">Agregar</button>
+         <?php echo "<a class = 'float-end' href='?controller=Plantel&action=IngresarPlantel' title= 'Ingresar'>";?>  
+         <img width="50px" height ="50px" src="../sistema_notas/images/add_icon.png" alt=""> </a>
       </div>
 
       <div>
@@ -17,32 +18,56 @@
       </div>
    </div>
 
-   <div class = "mt-5 mx-3 p-3 rounded border bg-dark text-light">
-      <span class = "border-end border-light ps-3 pe-2">Código Plantel</span>
-      <span class = "border-end border-light ps-3 pe-2">Código Zona</span>
-      <span class = "border-end border-light ps-3 pe-2">Nombre</span>
-      <span class = "border-end border-light ps-3 pe-2">Dirección</span>
-      <span class = "ps-3 pe-2">Nivel Educativo</span>
-   </div>
+<div class="table-responsive">
+   <table id="dtBasicExample" data-order='[[ 0, "asc" ]]' data-page-length='10' class="table table-sm table-striped table-hover table-bordered" cellspacing="0" width="100%" >
+ 
+      <thead>
+         <tr>
+              <th class="th-sm">Código Plantel</th>
+              <th class="th-sm">Código Zona</th>
+              <th class="th-sm">Nombre</th>
+              <th class="th-sm">Dirección</th>
+              <th class="th-sm">Nivel Educativo</th>
+              <th class="th-sm">Modificar</th>
+              <th class="th-sm">Eliminar</th>
+              <th class="th-sm">Acceder</th>
+         </tr>
 
-   <div class = "shadow-sm">
-<?php
-   while ($numrows = mysqli_fetch_array($result_plantel)){
-   ?>
-      <div class = "mx-3 px-3 pb-4 pt-3 rounded border bg-light">
-            <span class = "border-end border-secondary px-3"><?php echo $numrows["cod_plantel"]; ?></span>
-            <span class = "border-end border-secondary px-3"><?php echo $numrows["cod_zona"];?></span>
-            <span class = "border-end border-secondary px-3"><?php echo $numrows["nombre"]; ?></span>
-            <span class = "border-end border-secondary px-3"><?php echo $numrows["direccion"]; ?></span>
-            <span class = "border-end border-secondary px-3"><?php echo $numrows["nivel_educativo"]; ?></span>
-            <!--Estos son los botones-->
-            <button class = "btn btn-info float-end mb-2">Acceder</button>
-            <button class ="btn btn-danger float-end mx-2 mb-2">Eliminar</button>
-            <button class ="btn btn-warning float-end mx-2 mb-2">Modificar</button>
+  </thead>
 
-      </div>
-<?php
-   }?>
+ <tbody>
+ <?php 
+     
+      if ($numrows != 0)
+      {
+                       while ($numrows = mysqli_fetch_array($result_plantel))
+                       {?>
+                            <tr>
+                                <?php
+                                    $i = $numrows["cod_plantel"];
+                                ?>
+                                <th scope="row"><?php echo $numrows["cod_plantel"]; ?></th>                                   
+                                <td><?php echo "$numrows[cod_zona]";?></td>
+                                <td><?php echo "$numrows[nombre]";?></td>
+                                <td><?php echo "$numrows[direccion]";?></td>
+                                <td><?php echo "$numrows[nivel_educativo]";?></td>
+                              
+                                <td align= "center">
+                                    <?php echo "<a href='?controller=Plantel&action=UpdatePlantel&i=$i' title= 'Modificar'>";?>  
+                                    <img width="50px" height ="50px" src="../sistema_notas/images/update_icon.png" alt=""> </a>
+                                </td>
+                                <td align= "center">
+                                    <?php echo "<a href='?controller=Plantel&action=DeletePlantel&i=$i' title= 'Eliminar'>";?>  
+                                    <img width="50px" height ="50px" src="../sistema_notas/images/delete_icon.png" alt=""> </a>
+                                </td>
+                                <td align= "center">
+                                    <?php echo "<a href='?controller=Plantel&action=ListarPlantel&i=$i' title= 'Acceder'>";?>  
+                                    <img width="50px" height ="50px" src="../sistema_notas/images/access_icon.png" alt=""> </a>
+                                </td>
+                            </tr>
+                  <?php }
+      }
+?>
 </div>
 
 </body>
