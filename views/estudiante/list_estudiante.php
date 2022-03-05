@@ -3,13 +3,13 @@
    $controller= new EstudianteController();
    $result_estudiante= $controller->ListarEstudiante1();
    $numrows = mysqli_num_rows($result_estudiante);
-   /*$numrows = mysqli_num_rows($result_estudiante);*/
 ?>
 
 <body>
    <div class = "bg-light border p-2">
       <div>
-         <button class="btn btn-lg btn-success float-end me-4">Agregar</button>
+         <?php echo "<a class = 'float-end' href='?controller=Estudiante&action=IngresarEstudiante' title= 'Ingresar'>";?>  
+         <img width="50px" height ="50px" src="../sistema_notas/images/add_icon.png" alt=""> </a>
       </div>
 
       <div>

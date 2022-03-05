@@ -8,6 +8,13 @@
 </head>
 
 <body>
+    <header>
+
+    <?php
+            // carga el subMenu
+            require_once(dirname(__FILE__).'/../admon/submenu.php');	
+        ?>
+    </header>
     <section>	
         <div class="container">
         <?php
@@ -19,8 +26,8 @@
 
     <footer>
 	<?php 
-		require_once(dirname(__FILE__).'/'.'footer.php');
+		require_once(dirname(__FILE__).'/footer.php');
 	?>
-</footer>
+    </footer>
 </body>
 </html>

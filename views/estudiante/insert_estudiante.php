@@ -1,76 +1,64 @@
-<body>
-    <div class = "bg-light border p-2">
-        <div>
-            <h1 class = "text-center">Ingreso de Estudiantes</h1>
-        </div>
-    </div>
+<?php
 
-    <div class = "mt-5 rounded border text-light bg-secondary">
+if (isset($_SESSION['User']) == 1)
+{   
+    require_once(dirname(__FILE__).'/../../controllers/EstudianteController.php');
+    /*$controller= new EstudianteController();
+    $result_noticia= $controller->BuscarUltimaNoticia();
+    $numrows = mysqli_num_rows($result_noticia)*/
+?>
 
-        <div class = "p-3 rounded border border-success border-3 bg-dark text-light">
-            <span>Introduzca los datos del Estudiante y presione "Aceptar"</span>
-        </div>
+<div class="contaniner"> <!-- 1 -->
 
-        <form action="" type = "submit">
-            <div class = "m-3">
-                <span>Cédula:</span>
-                <div>
-                    <input type="text" class = "form-control bg-light" placeholder ="000000000">
+ <div class="page-content"><!-- 3 --> 
+    <form action= "?controller=Estudiante&action=IngresarEstudiante1" method = "POST"> <!-- 3 -->
+       <div class="col-12"> <!-- 5 -->
+       <br>
+			    	<h4> Ingresar de Estudiante</h4>
+       <br>
+       <div class="alert alert-success">
+            <div class ="row"> <!-- 6 -->
+              <div class="col-6">
+
+                       <label for="busqueda" align="center" size="40" > <b>Cedula: </b> </label>   
+                       <textarea class="form-control" maxlength = "200" placeholder = "ingrese aquí el título del artículo en español" id="exampleFormControlTextarea1" name = "titular" rows="4" required></textarea> 
+
+                       <label for="busqueda" align="center" size="40" > <b>Nombres: </b> </label>   
+                       <textarea class="form-control" maxlength = "200" placeholder = "ingrese aquí el título del artículo en español" id="exampleFormControlTextarea1" name = "titular" rows="4" required></textarea> 
+                    
+
+                		<label for="busqueda" align="center" size="40"> <b>Apellidos: </b> </label>    
+                        <textarea class="form-control" maxlength = "200" placeholder = "ingrese aquí el título del artículo en español" id="exampleFormControlTextarea1" name = "titular" rows="4" required></textarea> 
+
+                        <label for="busqueda" align="center" size="40"> <b>Nombre de usuario: </b> </label>    
+                        <textarea class="form-control" maxlength = "200" placeholder = "ingrese aquí el título del artículo en español" id="exampleFormControlTextarea1" name = "titular" rows="4" required></textarea> 
+
+                        <label for="busqueda" align="center" size="40"> <b>Clave: </b> </label>    
+                        <textarea class="form-control" maxlength = "200" placeholder = "ingrese aquí el título del artículo en español" id="exampleFormControlTextarea1" name = "titular" rows="4" required></textarea> 
+
+                      <label for="busqueda" align="center" size="40"> <b>Fecha de Ingreso: </b> </label> 
+                      <p> <input type="date" name="fecha" size="40" step="1" min="2020-01-01" max="2030-12-31" value="<?php echo date("Y-m-d");?>"> </p>
+
                 </div>
-                <small>9 caracteres máximo</small>
-            </div>
 
-            <div class = "m-3">
-                <span>Nombres: </span>
-                <div>
-                    <input type="text" class = "form-control bg-light">
-                </div>
-                <small>60 caracteres máximo</small>
-            </div>
+          </div>
+               
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ingresar</button> 
 
-            <div class = "m-3">
-                <span>Apellidos: </span>
-                <div>
-                    <input type="text" class = "form-control bg-light">
-                </div>
-                <small>60 caracteres máximo</small>
-            </div>
+       </div> <!-- 5 -->
+       </div>
+    </form>  <!-- 3 -->
+ </div> <!-- 4 -->
 
-            <div class = "m-3">
-                <span>Fecha de Ingreso: </span>
-                <div>
-                    <input type="text" class = "form-control bg-light" placeholder = "AAAA-MM-DD">
-                </div>
-            </div>
+<p> <br> </p>
 
-            <div class = "m-3">
-                <span>Login: </span>
-                <div>
-                    <input type="text" class = "form-control bg-light">
-                </div>
-                <small>60 caracteres máximo</small>
-            </div>
+</div> <!-- 1 -->
 
-            <div class = "m-3">
-                <span>Clave: </span>
-                <div>
-                    <input type="text" class = "form-control bg-light">
-                </div>
-                <small>60 caracteres máximo</small>
-            </div>
 
-            <div class = "m-3">
-                <span>Permisos: </span>
-                <div>
-                    <!--<input type="text" class = "form-control bg-light" placeholder = "4">-->
-                    <select class = "form-control bg-light">
-                        <option value="">4</option>
-                    </select>
-                </div>
-                <small>1 caracter numérico</small>
-            </div>
-        </form>
-    </div>
+<?php 
+}
+else {
+   require_once(dirname(__FILE__).'/insert_estudiante.php');
+}
 
-    <button type="submit" class = "btn btn-success float-end m-3">Aceptar</button>
-</body>
+?>
